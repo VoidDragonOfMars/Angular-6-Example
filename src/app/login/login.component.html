@@ -1,15 +1,26 @@
-<form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-  <div [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-    <label for="username">Username</label>
-    <input type="text" name="username" [(ngModel)]="model.username" #username="ngModel" required />
-    <div *ngIf="f.submitted && !username.valid">Username is required</div>
+<div class="row">
+
+  <div class="col-md-6 col-md-offset-2">
+    <h1>Login </h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" formControlName="email" id="email">
+        <div *ngIf="submitted && loginForm.controls.email.errors" class="error">
+          <div *ngIf="loginForm.controls.email.errors.required">Email is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" formControlName="password" id="pwd">
+        <div *ngIf="submitted && loginForm.controls.password.errors" class="error">
+          <div *ngIf="loginForm.controls.password.errors.required">Password is required</div>
+        </div>
+      </div>
+      <button class="btn btn-default">Login</button>
+      <div *ngIf="invalidLogin" class="error">
+        <div>Invalid credentials.</div>
+      </div>
+    </form>
   </div>
-  <div [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-    <label for="password">Password</label>
-    <input type="password" name="password" [(ngModel)]="model.password" #password="ngModel" required />
-    <div *ngIf="f.submitted && !password.valid">Password is required</div>
-  </div>
-  <div>
-    <button [disabled]="loading">Login</button>
-  </div>
-</form>
+</div>

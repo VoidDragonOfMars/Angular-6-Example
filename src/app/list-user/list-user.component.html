@@ -1,0 +1,22 @@
+<div class="container">
+  <h2> User Details</h2>
+  <button class="btn btn-danger" (click)="addUser()"> Add User</button>
+  <table class="table table-dark table-hover table-striped">
+    <thead class="thead-light">
+    <th>Id</th>
+    <th>Nombre</th>
+    <th>Roles</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>
+        <div *ngFor="let string of user.roles">
+          <span>{{string}}</span>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
