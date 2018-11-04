@@ -1,0 +1,5 @@
+<p color="primary">
+  <button  *ngIf="!tokenStorage.isLoggednIn()" routerLink="/list-users">Ver Usuarios Registrados</button>
+  <button  *ngIf="!tokenStorage.isLoggednIn()" routerLink="/login">Login</button>
+  <button  *ngIf="tokenStorage.isLoggednIn()" (click)="tokenStorage.signOut()">Logout</button>
+</p>

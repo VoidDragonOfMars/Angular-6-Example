@@ -16,11 +16,11 @@ export class ListUserComponent implements OnInit {
   constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-
+    /*
     if (!window.localStorage.getItem('token')) {
       this.router.navigate(['login']);
       return;
-    }
+    }*/
 
     this.userService.getUsers()
       .subscribe( data => {

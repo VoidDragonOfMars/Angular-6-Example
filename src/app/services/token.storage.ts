@@ -19,10 +19,11 @@ export class TokenStorage {
   }
 
   public getToken(): string {
-    return sessionStorage.getItem(TOKEN_KEY);
+    return window.sessionStorage.getItem(TOKEN_KEY);
   }
 
-  public isLoggedIn() {
+  public isLoggednIn() {
     return this.getToken() !== null;
   }
+
 }

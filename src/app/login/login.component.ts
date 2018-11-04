@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     this.authenticationService.login(this.username, this.password)
       .subscribe(data => {
       if (data.status === 200) {
-        //window.localStorage.setItem('token', data.token);
+        window.localStorage.setItem('token', data.token);
         this.tokenStorage.saveToken(data.token);
         this.router.navigate(['list-user']);
       } else {
