@@ -4,8 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {routing} from './app.routing';
 import { AppComponent } from './app.component';
-import { UserComponent } from './user/user.component';
-import {AddUserComponent} from './user/add-user.component';
+import {AddUserComponent} from './add-user/add-user.component';
 import {UserService} from './services/user.service';
 import {AuthenticationService} from './services/login.service';
 import {RouterModule} from '@angular/router';
@@ -18,7 +17,6 @@ import {TokenInterceptor} from './services/interceptor';
 @NgModule({
   declarations: [
     AppComponent,
-    UserComponent,
     AddUserComponent,
     ListUserComponent,
     LoginComponent

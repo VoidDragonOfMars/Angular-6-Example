@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import {UserService} from '../services/user.service';
-import {first} from 'rxjs/operators';
 import {Router} from '@angular/router';
 
 @Component({
@@ -11,7 +10,9 @@ import {Router} from '@angular/router';
 })
 export class AddUserComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) { }
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private userService: UserService) { }
 
   addForm: FormGroup;
 
@@ -23,12 +24,9 @@ export class AddUserComponent implements OnInit {
     }
 
     this.addForm = this.formBuilder.group({
-      id: [],
-      email: ['', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required]
+      name: ['', Validators.required],
+      password: ['', Validators.required]
     });
-
   }
 
   onSubmit() {

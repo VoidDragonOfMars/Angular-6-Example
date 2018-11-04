@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 
-const TOKEN_KEY = 'AuthToken';
+const TOKEN_KEY = 'token';
 
 @Injectable()
 export class TokenStorage {
@@ -20,5 +20,9 @@ export class TokenStorage {
 
   public getToken(): string {
     return sessionStorage.getItem(TOKEN_KEY);
+  }
+
+  public isLoggedIn() {
+    return this.getToken() !== null;
   }
 }
