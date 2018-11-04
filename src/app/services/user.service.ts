@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { User } from '../model/user.model';
+import {AppComponent} from '../app.component';
+import {Observable} from 'rxjs';
 
 
 const httpOptions = {
@@ -13,14 +15,19 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  private userUrl = 'http://localhost:8080/prueba-tecnica-api-rest/users';
+  private userUrl = AppComponent.API_URL + '/users';
+  private id: string;
 
   public getUsers() {
     return this.http.get<User[]>(this.userUrl);
   }
 
-  public deleteUser(user) {
-    return this.http.delete(this.userUrl + "/"+ user.id);
+  getUserById(id: number): Observable<User> {
+    return this.http.get<User>(this.userUrl + this.id);
+  }
+
+  public deleteUser(id: number) {
+    return this.http.delete(this.userUrl + '/' + id);
   }
 
   public createUser(user) {

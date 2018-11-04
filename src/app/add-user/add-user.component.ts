@@ -17,6 +17,11 @@ export class AddUserComponent implements OnInit {
 
   ngOnInit() {
 
+    if (!window.localStorage.getItem('token')) {
+      this.router.navigate(['login']);
+      return;
+    }
+
     this.addForm = this.formBuilder.group({
       id: [],
       email: ['', Validators.required],

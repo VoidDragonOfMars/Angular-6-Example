@@ -11,7 +11,8 @@ import {AuthenticationService} from './services/login.service';
 import {RouterModule} from '@angular/router';
 import { ListUserComponent } from './list-user/list-user.component';
 import { LoginComponent } from './login/login.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {TokenInterceptor} from './services/interceptor';
 
 
 @NgModule({
@@ -30,7 +31,11 @@ import {HttpClientModule} from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UserService, AuthenticationService],
+  providers: [UserService,
+    {provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi : true},
+    AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
