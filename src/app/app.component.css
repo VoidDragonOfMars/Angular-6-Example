@@ -1,0 +1,34 @@
+.footer {
+  background: #1f2128;
+  height: auto;
+  padding-bottom: 30px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
+
+
+body{
+  background-color: #d6cfd6;;
+}
+
+.cabecera{
+  min-height: 60px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10px;
+  color: #000;
+  background:rgba(136,0,40,1);
+  background:linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(200,200,200,1) 100%);
+  margin-top: -10px;
+  line-height: 20px;
+}
+
+.style-1 {
+  color: #a9a6aa;
+}
+.style-1:hover,
+.style-1:focus {
+  color: #dbd5d5;
+}
+

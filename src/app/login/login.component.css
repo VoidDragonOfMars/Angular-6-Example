@@ -4,6 +4,17 @@
 .login-container {
   display: flex;
   flex-direction: column;
-  background-color: blanchedalmond;
+  background-color: #9c9c99;
   margin: 2em auto auto;
+  border-radius: 0.3em;
+}
+
+a {
+  color: #d6cfd6;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #939396;
+  text-decoration: underline;
 }
